@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+/* ------------------------- FORMULÁRIO --------------------------------- */
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+a:hover{
+    opacity: 0.7;
+}
+.logo{
+    font-size: 24px;
+    text-transform: uppercase; /* transformar em maiúscula */
+    letter-spacing: 4px; /* Comportamento do espaçamento entre caracteres de texto */
+}
+nav {
+    display: flex; /* logo e lista um do lado do outro */
+    justify-content: space-around; /* espaço ao redor - metade do espaço entre eles */
+    align-items: center;
+    font-family: system-ui,
+    -apple-system, Helvetica, Arial,
+    sans-serif;
+    background: #23232e;
+    height: 8vh; /* medida responsiva */
+}
+
+main{
+    background: url("fundo.jpg") no-repeat
+    center center; /* referente aos eixos x e y */
+    background-size: cover; /* Caso a  resolução do monitor for maior que a img */
+    height: 92vh; /* completa o 8vh de cima -  100% da tela */
+}
+     
+main .divTitulo{
+    text-align: center;
+    color: white;
+}
+
+main .sectionForm{
+    color: white;
+    text-align: center;
+    background: #23232e;
+    margin-top: 70px;
+    margin-left: 410px;
+    border-radius: 10px;
+    width: 450px;
+    font-size: 17px;
+}
+
+main footer{
+    color: white;
+    text-align: center;
+    font-size: 11px;
+    margin-top: 25px;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+.nav-list li{
+    letter-spacing: 3px; /* Comportamento do espaçamento entre caracteres de texto */
+    margin-left: 32px;
+}
+
+/* --------------------------- INPUTS ------------------------------------ */
+
+#inpNome{
+    height: 20px;
+    margin-top: 30px;
+    margin-left: 40px;
+    text-align: center;
+    background: #4c4c58;
+    color: white;
+}
+#inpGenero{
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 50px;
+    border-radius: 5px;
+    text-align: center;
+    background: #4c4c58;
+    color: white;
+}
+#classIndicativa{
+    height: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: 70px;
+    background: #4c4c58;
+    color: white;
+}
+#inpDuracao{
+    height: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: 44px;
+    text-align: center;
+    background: #4c4c58;
+    color: white;
+}
+#inpAnoLancamento{
+    height: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin-left: 77px;
+    text-align: center;
+    background: #4c4c58;
+    color: white;
+}
+
+/* ------------------- AVALIAÇÃO ------------------------- */
+
+.estrelas{
+    margin-top: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+    .estrelas > span:hover:before {
+        content: "\2605";
+        position: absolute;
+     }
+     .estrelas {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+      }
+      .estrelas > span {
+        display: inline-block;
+        position: relative;
+        width: 1.1em;
+      }
+      .estrelas > span:hover:before,
+      .estrelas > span:hover ~ span:before {
+        color: transparent;
+      }
+      .estrelas > span:hover:before,
+      .estrelas > span:hover ~ span:before {
+        content: "\2605";
+        position: absolute;
+        left: 1; 
+        color: gold;
+      }
+
+/* --------------------------------- BOTÕES ----------------------------------- */
+
+#botaoCadastrar{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background: #4c4c58;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+#botaoCadastrar:hover{
+    opacity: 0.7;
+}
+
+#botaoLimpar{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background: #4c4c58;
+    color: white;
+    border-radius: 5px;
+}
+#botaoLimpar:hover{
+    opacity: 0.7;
+}
+#botaoEditar{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background: #4c4c58;
+    color: white;
+    border-radius: 5px;
+}
+#botaoEditar:hover{
+    opacity: 0.7;
+
+}
+#botaoPesquisar{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background: #4c4c58;
+    color: white;
+    margin: 10px;
+    border-radius: 20px;
+}
+#botaoPesquisar:hover{
+    opacity: 0.7;
+}
+#botaoApagar{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background: #4c4c58;
+    color: white;
+    border-radius: 5px;
+}
+#botaoApagar:hover{
+    opacity: 0.7;
+}
+#botaoFake{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background: #4c4c58;
+    color: white;
+    border-radius: 5px;
+}
+#botaoFake:hover{
+    opacity: 0.7;
+}
+#botaoConsole{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background: #4c4c58;
+    color: white;
+    border-radius: 5px;
+}
+#botaoConsole:hover{
+    opacity: 0.7;
+}
+

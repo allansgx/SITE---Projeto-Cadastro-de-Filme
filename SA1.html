@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filme Favorito</title>
+    <link rel="stylesheet" href="sa1.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="SA1.html">A & A</a>
+            <ul class="nav-list">
+                <li><a href="SA1.html">Início</a></li>
+                <li><a href="ranking.html">Ranking</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="divTitulo">
+            <h1>Filme Favorito</h1>
+        </section>
+    
+        <section  class="sectionForm">
+
+            Nome do Filme: <input type="text" id="inpNome" placeholder="Ex: Titanic"><button id="botaoPesquisar"  onclick="pesquisar()" type="submit">&#128269;</button>
+            <br>
+            Gênero: <input type="text" id="inpGenero" placeholder="Ex: Comédia"> <br>
+    
+            <label>Class Indicativa:</label>
+            <select id="classIndicativa">
+                <option selected disabled value="">-Selecione-</option>
+                <option>Livre</option>
+                <option>10</option>
+                <option>12</option>
+                <option>14</option>
+                <option>16</option>
+                <option>18</option>
+            </select>
+            <br>
+    
+            Duração: <input type="text" id="inpDuracao" placeholder="Ex: 02:51"> <br>
+            Ano: <input type="text" id="inpAnoLancamento" placeholder="Ex: 2021"> <br><br>
+    
+            <hr>
+    
+            <h1>Avaliação</h1>
+                <div class="estrelas">
+                    <span>☆</span> <span>☆</span> <span>☆</span> <span>☆</span> <span>☆</span>
+                    <!-- <input type="radio" id="estrela1" name="estrela">
+                    <strong>Horrível</strong>
+    
+                    <input type="radio" id="estrela2" name="estrela">
+                    <strong>Ruim</strong>
+    
+                    <input type="radio" id="estrela3" name="estrela">
+                    <strong>Razoável</strong>
+    
+                    <input type="radio" id="estrela4" name="estrela">
+                    <strong>Bom</strong>
+    
+                    <input type="radio" id="estrela5" name="estrela">
+                    <strong>Excelente</strong> -->
+                </div>
+    
+            <br>
+            <button id="botaoCadastrar" onclick="cadastrar()"><strong>Cadastrar</strong></button>
+            <button id="botaoLimpar" onclick="limpar()"><strong>Limpar</strong></button>
+            <button id="botaoEditar" onclick="editar()"><strong>Editar</strong></button>
+            <button id="botaoApagar" onclick="apagar()"><strong>Apagar</strong></button> <br>
+            <button id="botaoFake" onclick="fakezear()"><strong>Gerar Fake</strong></button>
+            <button id="botaoConsole" onclick="teste()"><strong>Console</strong></button>
+
+             
+
+            <div id="divRelatorio"></div>
+        </section>
+
+        <script>
+            document.getElementById('inpNome').focus()
+            var nomes = new Array()
+            var genero = new Array()
+            var classIndicativa = new Array()
+            var duracao = new Array()
+            var ano = new Array()
+            var ultimoRegistroPesquisado = new Array()
+
+
+            // Função para gerar um cadastro de filme fake
+            function fakezear()
+            {
+                nomes[0]= 'conexao jamaica'
+                genero[0]='ação'
+                classIndicativa[0]= '18'
+                duracao[0]= '4:20'
+                ano[0]= '2000'
+                        
+                teste()
+            }
+
+            // Apagar um cadastro
+            function apagar()
+            {
+                for (i=ultimoRegistroPesquisado; i<nomes.length-1; i++)
+                {
+                    nomes[i] = nomes [i+1]
+                    duracao[i] = duracao[i+1]
+                }
+                nomes.length = nomes.length-1
+                duracao.length = duracao.length-1
+            }   
+              
+            // Editar um cadastro
+            function editar()
+            {
+                nomes[ultimoRegistroPesquisado] = document.getElementById('inpNome').value
+                genero[ultimoRegistroPesquisado] = document.getElementById('inpGenero').value
+                classIndicativa[ultimoRegistroPesquisado] = document.getElementById('classIndicativa').value
+                duracao[ultimoRegistroPesquisado] = document.getElementById('inpDuracao').value
+                ano[ultimoRegistroPesquisado] = document.getElementById('inpAnoLancamento').value
+            }
+    
+            // Limpar todos os campos e voltar o foco ao nome
+            function limpar()
+            {
+                document.getElementById('inpNome').value = ''
+                document.getElementById('inpGenero').value = ''
+                document.getElementById('classIndicativa').value = ''
+                document.getElementById('inpDuracao').value = ''
+                document.getElementById('inpAnoLancamento').value = ''
+                document.getElementById('divRelatorio').innerHTML = ''
+                document.getElementById('inpNome').focus()
+            }
+    
+            // Cadastrar um novo formulário no localStorage (Tipo um banco de dados da web)
+            function cadastrar()
+            {
+                nomes[nomes.length]=document.getElementById('inpNome').value
+                genero[genero.length]=document.getElementById('inpGenero').value
+                classIndicativa[classIndicativa.length]=document.getElementById('classIndicativa').value
+                duracao[duracao.length]=document.getElementById('inpDuracao').value
+                ano[ano.length]=document.getElementById('inpAnoLancamento').value
+    
+                limpar()
+    
+                localStorage.setItem("Nome", nomes[nomes.length-1])
+                localStorage.setItem("Genero", genero[genero.length-1])
+                localStorage.setItem("Class Indicativa", classIndicativa[classIndicativa.length-1])
+                localStorage.setItem("Duração", duracao[duracao.length-1])
+                localStorage.setItem("Ano", ano[ano.length-1])
+    
+                teste()
+            }
+    
+            // Pesquisa um cadastro só pelo nome do filme
+            function pesquisar()
+            {
+                var nomePesquisado = document.getElementById('inpNome').value
+    
+                for(i=0; i<nomes.length; i++)
+                {
+                    if(nomes[i] == nomePesquisado)
+                    {
+                        ultimoRegistroPesquisado = i 
+                        alert('Encontrado!')
+    
+                        document.getElementById('divRelatorio').innerHTML = `Nome: ${nomes} <BR>Gênero ${genero} 
+                                                                            <BR>Classificação Indicativa: ${classIndicativa}
+                                                                            <BR>Duração: ${duracao}
+                                                                            <BR>Ano: ${ano}`
+                    }
+                }
+            }
+    
+            // Aparecer o cadastro no console
+            function teste()
+            {
+                console.log(nomes)
+                console.log(genero)
+                console.log(classIndicativa)
+                console.log(duracao)
+                console.log(ano)
+            }
+    
+            // Enter para cadastrar
+            document.getElementById('inpAnoLancamento').addEventListener('keypress', function(e){
+                if (e.key === 'Enter'){
+                    cadastrar()
+                }
+    
+            })
+    
+        </script>
+
+        <footer>
+            © Copyright 2021 - Todos os direitos reservados - Desenvolvido por Allan S.G. & Arthur V. S.
+        </footer>
+    </main>
+    
+
+</body>
+</html>

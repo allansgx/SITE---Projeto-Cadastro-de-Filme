@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+/* --------------------------------- FORMULÁRIO ----------------------------------- */
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+a:hover{
+    opacity: 0.7;
+}
+.logo{
+    font-size: 24px;
+    text-transform: uppercase; /* transformar em maiúscula */
+    letter-spacing: 4px; /* Comportamento do espaçamento entre caracteres de texto */
+}
+nav {
+    display: flex; /* logo e lista um do lado do outro */
+    justify-content: space-around; /* espaço ao redor - metade do espaço entre eles */
+    align-items: center;
+    font-family: system-ui,
+    -apple-system, Helvetica, Arial,
+    sans-serif;
+    background: #23232e;
+    height: 8vh; /* medida responsiva */
+}
+
+main{
+    background: url("fundo.jpg") no-repeat
+    center center; /* referente aos eixos x e y */
+    background-size: cover; /* Caso a  resolução do monitor for maior que a img */
+    height: 92vh; /* completa o 8vh de cima -  100% da tela */
+}
+     
+main .divTitulo{
+    text-align: center;
+    color: white;
+    margin-top: px;
+}
+
+main .sectionForm{
+    text-align: center;
+    background: white;
+    margin-top: 90px;
+    margin-left: 410px;
+    border-radius: 10px;
+    width: 450px;
+
+}
+
+main footer{
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+main .sectionRanking{
+    color: white;
+    text-align: center;
+    font-size: 13px;
+    margin: 0;
+    background: #23232e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50px;
+    width: 400px;
+    border-radius: 10px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li{
+    letter-spacing: 3px; /* Comportamento do espaçamento entre caracteres de texto */
+    margin-left: 32px;
+}
+
+
